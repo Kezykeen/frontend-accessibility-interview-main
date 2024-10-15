@@ -1,5 +1,12 @@
 {
-    "rules": {
-      "jsx-a11y/alt-text": "off"
-    }
+  "env": {
+    "browser": true,
+    "es2022": true,
+    "cypress": true // Added to enable Cypress globals
+  },
+  "parser": "@typescript-eslint/parser",
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "rules": {
+    "jsx-a11y/alt-text": "off"
+  }
 }
