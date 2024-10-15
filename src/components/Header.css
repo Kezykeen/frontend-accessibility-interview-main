@@ -1,0 +1,41 @@
+/* Header.css */
+.App-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px; /* Adjust the padding as needed */
+    background-color: #ffebcc; /* Change the background color for distinction */
+    border-bottom: 2px solid #ffa500; /* Add a bottom border for separation */
+  }
+  
+  .logo img {
+    height: 30px; /* Set logo height to 20px */
+  }
+  
+  .nav-container {
+    flex-grow: 1; /* Allow nav to grow */
+    text-align: center; /* Center the text */
+  }
+  
+  .nav-container ul {
+    display: flex; /* Use flexbox for the list */
+    justify-content: center; /* Center the list items */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+  
+  .nav-container li {
+    margin: 0 16px; /* Add horizontal space between items */
+  }
+  
+  .nav-container a {
+    text-decoration: none; /* Remove underline from links */
+    color: #1a202c; /* Set link color */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .nav-container a:hover {
+    color: #3182ce; /* Change link color on hover */
+  }
+  
