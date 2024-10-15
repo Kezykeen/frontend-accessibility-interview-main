@@ -9,7 +9,8 @@
 .dog-form {
   display: flex;
   flex-direction: column;
-  width: 400px; /* Set a fixed width for the form */
+  width: 100%;
+  max-width: 400px; /* Responsive max width */
   background-color: #bce1e8; /* Background color of the form */
   border-radius: 8px; /* Optional: rounded corners */
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow for the form */
@@ -23,20 +24,8 @@
   margin-bottom: 15px; /* Space between each form group */
 }
 
-label {
-  flex: 0 0 150px; /* Fixed width for labels */
-  margin-right: 10px; /* Space between label and input */
-}
-
-input {
-  flex: 1; /* Allow inputs to take up the remaining space */
-  padding: 8px; /* Padding inside the input fields */
-  border: 1px solid #ccc; /* Border for input fields */
-  border-radius: 4px; /* Rounded corners for input fields */
-}
-
 .submit-button {
-  background-color: #007bff; /* Button background color */
+  background-color: #0056b3; /* Button background color */
   color: white; /* Button text color */
   padding: 10px 15px; /* Button padding */
   border: none; /* No border */
@@ -45,7 +34,12 @@ input {
 }
 
 .submit-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #024083; /* Darker blue on hover */
+}
+
+.submit-button:focus {
+  outline: 3px solid #3c9aff; /* Light blue focus outline */
+  outline-offset: 2px;
 }
 
 .dogs-form-image {
@@ -57,4 +51,11 @@ input {
 .dogs-form-image img {
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .dog-form {
+    width: 100%;
+  }
 }

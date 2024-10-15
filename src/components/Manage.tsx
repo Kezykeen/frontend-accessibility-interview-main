@@ -1,70 +1,140 @@
-import React, { useState } from 'react';
-import './Manage.css'; // Import the CSS for styling
+import React, { useState } from "react";
+import "./Manage.css"; // Import the CSS for styling
 
 const Manage = () => {
   const [dogData, setDogData] = useState({
-    name: '',
-    age: '',
-    height: '',
-    color: '',
-    favoriteToy: '',
-    favoriteMeal: '',
+    name: "",
+    age: "",
+    height: "",
+    color: "",
+    favoriteToy: "",
+    favoriteMeal: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
     setDogData({ ...dogData, [name]: value });
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('New Dog Added:', dogData);
+    console.log("New Dog Added:", dogData);
     setDogData({
-      name: '',
-      age: '',
-      height: '',
-      color: '',
-      favoriteToy: '',
-      favoriteMeal: '',
+      name: "",
+      age: "",
+      height: "",
+      color: "",
+      favoriteToy: "",
+      favoriteMeal: "",
     });
   };
 
   return (
     <div className="manage-container">
-      <h2>Add a New Dog</h2>
+      <h2 id="manage-heading">Add a New Dog</h2>
       <main>
-      <form onSubmit={handleSubmit} className="dog-form">
-        <div className="form-group">
-          <label htmlFor="name">Name: </label>
-          <input id="name" type="text" name="name" value={dogData.name} onChange={handleChange} required placeholder='Charlie' />
-        </div>
-        <div className="form-group">
-          Age: 
-          <input type="number" name="age" value={dogData.age} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-        height:
-          <input type="text" name="height" value={dogData.height} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-        color:
-          <input type="text" name="color" value={dogData.color} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-        favoriteToy:
-          <input type="text" name="favoriteToy" value={dogData.favoriteToy} onChange={handleChange} required />
-        </div>
-        <div className="form-group">
-        favoriteMeal: 
-          <input type="text" name="favoriteMeal" value={dogData.favoriteMeal} onChange={handleChange} required />
-        </div>
-        <button type="submit" className="submit-button" onClick={() => alert(`Dog name: ${dogData.name} was added successfully!`)}>Add Dog</button>
-      </form>
+        <form
+          onSubmit={handleSubmit}
+          className="dog-form"
+          aria-labelledby="manage-heading"
+        >
+          <div className="form-group">
+            <label htmlFor="name">Name:</label>
+            <input
+              id="name"
+              type="text"
+              name="name"
+              value={dogData.name}
+              onChange={handleChange}
+              required
+              placeholder="Charlie"
+              aria-required="true"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="age">Age:</label>
+            <input
+              id="age"
+              type="number"
+              name="age"
+              value={dogData.age}
+              onChange={handleChange}
+              required
+              aria-required="true"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="height">Height:</label>
+            <input
+              id="height"
+              type="text"
+              name="height"
+              value={dogData.height}
+              onChange={handleChange}
+              required
+              aria-required="true"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="color">Color:</label>
+            <input
+              id="color"
+              type="text"
+              name="color"
+              value={dogData.color}
+              onChange={handleChange}
+              required
+              aria-required="true"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="favoriteToy">Favorite Toy:</label>
+            <input
+              id="favoriteToy"
+              type="text"
+              name="favoriteToy"
+              value={dogData.favoriteToy}
+              onChange={handleChange}
+              required
+              aria-required="true"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="favoriteMeal">Favorite Meal:</label>
+            <input
+              id="favoriteMeal"
+              type="text"
+              name="favoriteMeal"
+              value={dogData.favoriteMeal}
+              onChange={handleChange}
+              required
+              aria-required="true"
+            />
+          </div>
+          <button
+            type="submit"
+            className="submit-button"
+            aria-label="Submit new dog details"
+            onClick={() =>
+              alert(`Dog name: ${dogData.name} was added successfully!`)
+            }
+          >
+            Add Dog
+          </button>
+        </form>
       </main>
-      <div className="dogs-form-image" tabIndex={0}>
-        <img 
+
+      <div
+        className="dogs-form-image"
+        tabIndex={0}
+        role="img"
+        aria-label="Random Dog Image"
+      >
+        <img
           src={`https://placedog.net/1000/300/random?id=128`}
-          alt="Random Dog"
+          alt="A random dog image"
         />
       </div>
     </div>

@@ -1,66 +1,47 @@
 .about-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    flex-grow: 1;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 40px;
-  }
-  
-  h2 {
-    color: #555;
-    font-size: 24px;
-  }
-  
-  p {
-    color: #666;
-  }
-  
-  a {
-    color: #007bff;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
-  .link-text{
-    color: green;
-    cursor: pointer;
-  }
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  flex-grow: 1;
+}
 
+.link-text {
+  color: #004700;
+  cursor: pointer;
+}
 
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.custom-button {
+  background-color: #0056b3; /* Bootstrap Primary Color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.custom-button:hover {
+  background-color: #024083; /* Darker shade of blue */
+}
+
+/* Focus outline for accessibility */
+.custom-button:focus {
+  outline: 3px solid #80bdff; /* Light blue outline */
+  outline-offset: 2px; /* Offset to separate from button */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .about-container {
+    padding: 10px;
   }
-  
-  .custom-button {
-    background-color: #007bff; /* Bootstrap Primary Color */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
-  }
-  
-  /* Hover effect */
-  .custom-button:hover {
-    background-color: #0056b3; /* Darker shade of blue */
-  }
-  
-  /* Focus outline for accessibility */
-  .custom-button:focus {
-    outline: 3px solid #80bdff; /* Light blue outline */
-    outline-offset: 2px; /* Offset to separate from button */
-  }
-  
+}
