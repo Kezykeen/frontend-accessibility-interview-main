@@ -1,39 +1,43 @@
-import React from 'react';
-import './DogCard.css';
+import React from "react";
+import "./DogCard.css";
 
 interface DogCardProps {
-  id: number; // Add id prop
+  id: number;
   name: string;
   age: number;
+  picture: string;
   height: string;
   color: string;
   favoritePortFeature: string;
   favoriteMeal: string;
+  clickHandler: (name: string) => void;
 }
 
-const DogCard: React.FC<DogCardProps> = ({ 
-    id, 
-    name, 
-    age, 
-    height, 
-    color, 
-    favoritePortFeature, 
-    favoriteMeal 
+const DogCard: React.FC<DogCardProps> = ({
+  id,
+  name,
+  age,
+  height,
+  picture,
+  color,
+  favoritePortFeature,
+  favoriteMeal,
+  clickHandler,
 }) => {
-
-  // Function to handle the alert
-  const showAlert = () => {
-    alert(`Dog's name is ${name}`);
-  };
-
   return (
-    <div className="dog-card" key={id}>
-      <img 
-        src={`https://placedog.net/400/400/random?id=${id}`}
-        className="dog-image" 
+    <article
+      className="dog-card"
+      role="listitem"
+      aria-labelledby={`dog-name-${id}`}
+      aria-describedby={`dog-info-${id}`}
+    >
+      <img
+        src={picture}
+        alt={`A dog named ${name} that is ${color} in color.`}
+        className="dog-image"
       />
-      <h3>{name}</h3>
-      <div>
+      <h2 id={`dog-name-${id}`}>{name}</h2>
+      <div id={`dog-info-${id}`}>
         <div className="category">
           <p className="category-label">ID:</p>
           <p className="category-value">{id}</p>
@@ -60,10 +64,14 @@ const DogCard: React.FC<DogCardProps> = ({
         </div>
       </div>
 
-      <div className="dog-name-button" onClick={showAlert}>
-        Click here to alert the dog's name
-      </div>
-    </div>
+      <button
+        className="dog-name-button"
+        onClick={() => clickHandler(name)}
+        aria-label={`Alert the name of the dog, which is ${name}`}
+      >
+        Reveal Dog's Name
+      </button>
+    </article>
   );
 };
 

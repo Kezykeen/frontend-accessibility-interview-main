@@ -18,35 +18,30 @@
   border-radius: 12px; /* Match card's corners */
 }
 
-h3 {
-  font-size: 24px;
-  color: #333;
-  margin: 12px 0;
-}
-
 .category {
   display: flex;
-  white-space: "nowrap";
+  white-space: nowrap;
 }
 
 .category-label,
 .category-value {
   font-weight: bold;
   color: #333;
-  white-space: nowrap;
 }
 
 .category-value {
   margin-left: 2px;
   font-weight: normal;
-  color: #555;
+  color: #303030;
 }
 
 .dog-name-button {
   display: inline-block;
   padding: 10px 20px;
   margin-top: 10px;
-  background-color: #72b6fd;
+  background-color: #024083;
+  border: none;
+  width: 100%;
   color: white;
   text-align: center;
   cursor: pointer;
@@ -55,5 +50,12 @@ h3 {
 }
 
 .dog-name-button:hover {
-  background-color: #bdd6f0;
+  background-color: #194370;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 600px) {
+  .dog-cards-container {
+    grid-template-columns: 1fr;
+  }
 }
