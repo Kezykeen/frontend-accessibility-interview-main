@@ -1,9 +1,4 @@
-import React, { useState } from "react";
-import DogCard from "./DogCard";
-import "./Catalog.css"; // Import the CSS for the catalog
-import AccessibleAlert from "./AlertModal";
-
-const dogs = [
+export const dogs = [
   {
     id: 1, // Unique numeric ID
     name: "Buddy",
@@ -76,33 +71,20 @@ const dogs = [
   },
 ];
 
-const Catalog: React.FC = () => {
-  const [isAlertOpen, setIsAlertOpen] = useState(false);
-  const [dogName, setDogName] = useState("");
-
-  const closeAlert = () => setIsAlertOpen(false);
-
-  const clickHandler = (name: string) => {
-    setDogName(name);
-    setIsAlertOpen(true);
-  };
-
-  return (
-    <main className="catalog" aria-labelledby="catalog-heading">
-      <h1 id="catalog-heading">Dog Catalog</h1>
-      <section className="dog-cards-container" role="list">
-        {dogs.map((dog, index) => (
-          <DogCard key={index} {...dog} clickHandler={clickHandler} />
-        ))}
-      </section>
-      <AccessibleAlert
-        isOpen={isAlertOpen}
-        onClose={closeAlert}
-        title="Dog Name"
-        message={`Dog's name is ${dogName}`}
-      />
-    </main>
-  );
-};
-
-export default Catalog;
+export const resources = [
+  {
+    id: 1,
+    text: "Check color contrast compliance (WCAG AA).",
+    url: "https://webaim.org/resources/contrastchecker/",
+  },
+  {
+    id: 2,
+    text: "Hex color picker tool.",
+    url: "https://htmlcolorcodes.com/",
+  },
+  {
+    id: 3,
+    text: "Chrome extension for landmark navigation.",
+    url: "https://chromewebstore.google.com/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp",
+  },
+];

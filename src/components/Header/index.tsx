@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom"; // Import Link for routing
-import CatalogLogo from "../CatalogLogo.svg";
-import "./Header.css";
+import CatalogLogo from "../../assets/CatalogLogo.svg";
+import "./style.css";
 
 const Header: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import "./AlertModal.css"; // Add styles as necessary
+import "./style.css"; // Add styles as necessary
 
 interface AccessibleAlertProps {
   isOpen: boolean;
@@ -8,7 +8,7 @@ interface AccessibleAlertProps {
   message: string;
 }
 
-const AccessibleAlert: React.FC<AccessibleAlertProps> = ({
+const AlertModal: React.FC<AccessibleAlertProps> = ({
   isOpen,
   onClose,
   title,
@@ -57,4 +57,4 @@ const AccessibleAlert: React.FC<AccessibleAlertProps> = ({
   );
 };
 
-export default AccessibleAlert;
+export default AlertModal;

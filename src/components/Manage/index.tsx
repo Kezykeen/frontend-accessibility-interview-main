@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Manage.css"; // Import the CSS for styling
+import "./style.css"; // Import the CSS for styling
 
 const Manage = () => {
   const [dogData, setDogData] = useState({
@@ -20,7 +20,6 @@ const Manage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("New Dog Added:", dogData);
     setDogData({
       name: "",
       age: "",

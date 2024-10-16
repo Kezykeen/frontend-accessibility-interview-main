@@ -1,5 +1,5 @@
 import React from "react";
-import "./DogCard.css";
+import "./style.css";
 
 interface DogCardProps {
   id: number;
