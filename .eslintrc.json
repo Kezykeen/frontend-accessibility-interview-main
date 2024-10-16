@@ -1,12 +1,20 @@
 {
   "env": {
     "browser": true,
-    "es2022": true,
-    "cypress": true // Added to enable Cypress globals
+    "es2022": true
   },
   "parser": "@typescript-eslint/parser",
   "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["cypress"], // Add the Cypress plugin
   "rules": {
     "jsx-a11y/alt-text": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["cypress/**/*.ts", "cypress/**/*.js"], // Apply Cypress only to test files
+      "env": {
+        "cypress/globals": true // Enable Cypress globals for test files
+      }
+    }
+  ]
 }
