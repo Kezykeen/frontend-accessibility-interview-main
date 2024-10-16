@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./style.css"; // Import the CSS for styling
 import AlertModal from "../../components/AlertModal";
+import "./style.css"; // Import the CSS for styling
 
 const Manage = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -14,8 +14,17 @@ const Manage = () => {
   });
 
   const openAlert = () => setIsAlertOpen(true);
-  const closeAlert = () => setIsAlertOpen(false);
-
+  const closeAlert = () => {
+    setIsAlertOpen(false);
+    setDogData({
+      name: "",
+      age: "",
+      height: "",
+      color: "",
+      favoriteToy: "",
+      favoriteMeal: "",
+    });
+  };
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -25,14 +34,7 @@ const Manage = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setDogData({
-      name: "",
-      age: "",
-      height: "",
-      color: "",
-      favoriteToy: "",
-      favoriteMeal: "",
-    });
+    openAlert();
   };
 
   return (
@@ -121,7 +123,6 @@ const Manage = () => {
             type="submit"
             className="submit-button"
             aria-label="Submit new dog details"
-            onClick={openAlert}
           >
             Add Dog
           </button>
