@@ -18,7 +18,7 @@ const About: React.FC = () => {
         experience for individuals with disabilities.
       </p>
       <h2>Helpful Resources</h2>
-      <ul>
+      <ul id="resource-list">
         {resources.map(({ id, text, url }) => (
           <li key={id}>
             <a
