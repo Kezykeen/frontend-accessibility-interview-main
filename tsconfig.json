@@ -16,5 +16,8 @@
     "allowSyntheticDefaultImports": true,
     "types": ["cypress"]
   },
-  "include": ["src"]
+  "include": [
+    "src/**/*",
+    "cypress/**/*" // Include Cypress test files
+  ]
 }
