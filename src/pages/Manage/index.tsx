@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./style.css"; // Import the CSS for styling
+import AlertModal from "../../components/AlertModal";
 
 const Manage = () => {
+  const [isAlertOpen, setIsAlertOpen] = useState(false);
   const [dogData, setDogData] = useState({
     name: "",
     age: "",
@@ -10,6 +12,9 @@ const Manage = () => {
     favoriteToy: "",
     favoriteMeal: "",
   });
+
+  const openAlert = () => setIsAlertOpen(true);
+  const closeAlert = () => setIsAlertOpen(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -116,9 +121,7 @@ const Manage = () => {
             type="submit"
             className="submit-button"
             aria-label="Submit new dog details"
-            onClick={() =>
-              alert(`Dog name: ${dogData.name} was added successfully!`)
-            }
+            onClick={openAlert}
           >
             Add Dog
           </button>
@@ -136,6 +139,12 @@ const Manage = () => {
           alt="A random dog image"
         />
       </div>
+      <AlertModal
+        isOpen={isAlertOpen}
+        onClose={closeAlert}
+        title="Dog Name"
+        message={`Dog name: ${dogData.name} was added successfully!`}
+      />
     </div>
   );
 };
