@@ -13,7 +13,7 @@ interface DogCardProps {
   clickHandler: (name: string) => void;
 }
 
-const DogCard: React.FC<DogCardProps> = ({
+export const DogCard: React.FC<DogCardProps> = ({
   id,
   name,
   age,
@@ -74,5 +74,3 @@ const DogCard: React.FC<DogCardProps> = ({
     </article>
   );
 };
-
-export default DogCard;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const Footer: React.FC = () => {
+export const Footer: React.FC = () => {
   return (
     <footer className="App-footer" aria-labelledby="footer-text">
       <p id="footer-text">
@@ -10,5 +10,3 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
-
-export default Footer;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AlertModal from "../../components/AlertModal";
+import { AlertModal } from "../../components";
 import "./style.css"; // Import the CSS for styling
 
 const Manage = () => {

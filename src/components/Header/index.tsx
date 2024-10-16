@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"; // Import Link for routing
 import CatalogLogo from "../../assets/CatalogLogo.svg";
 import "./style.css";
 
-const Header: React.FC = () => {
+export const Header: React.FC = () => {
   return (
     <header className="App-header" aria-labelledby="header-navigation">
       <nav>
@@ -35,5 +35,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;

@@ -8,7 +8,7 @@ interface AccessibleAlertProps {
   message: string;
 }
 
-const AlertModal: React.FC<AccessibleAlertProps> = ({
+export const AlertModal: React.FC<AccessibleAlertProps> = ({
   isOpen,
   onClose,
   title,
@@ -56,5 +56,3 @@ const AlertModal: React.FC<AccessibleAlertProps> = ({
     </div>
   );
 };
-
-export default AlertModal;
