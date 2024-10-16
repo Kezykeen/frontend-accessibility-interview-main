@@ -2,44 +2,130 @@
 
 ## Project Overview
 
-This project is a front-end-only React application where you can manage a catalog of dogs. The application includes the following pages:
+The **Dog Catalog Accessibility Exercise** is a React application designed to help manage a catalog of dogs. The application includes three main pages:
 
-1. **Catalog Page**: Displays cards with dogs. Each card contains the dog’s name and picture.
-2. **Manage Page**: Allows you to add new dogs to the catalog.
-3. **About Page**: Contains useful links for this exercise.
+1. **Catalog Page**: Displays dog cards, each containing the dog's name, picture, and additional details.
+2. **Manage Page**: Allows users to add new dogs to the catalog by filling out a form.
+3. **About Page**: Provides helpful links related to accessibility.
 
-## Instructions for Building and Running the Application`
+The primary goal of this project is to ensure the application complies with **WCAG 2.2 accessibility standards** by addressing key areas such as ARIA, alternative text, link purpose, headings, color contrast, and more.
 
-1. **Install dependencies**:
+## Key Features
 
-   ```bash
-   npm install
-   ```
-
-2. **Run the application**:
-
-   ```bash
-   npm start
-   ```
-
-3. The app should now be running on [http://localhost:3000](http://localhost:3000).
+- Accessible forms and interactive elements.
+- Responsive design for different device viewports.
+- Clear navigation and structure adhering to accessibility guidelines.
 
 ## Accessibility Guidelines
 
-**The main goal of this exercise is to make the application accessible according to WCAG 2.2 standards.**
+This project focuses on making the application compliant with WCAG 2.2 standards, covering:
 
-The points you need to fix in this exercise relate to **Links**, **Lists**, **Headings**, **ARIA**, **Alternative Text**, **Colors**, **Forms**, **Navigation**, and **Font Size**.
+- **Links**: Ensuring links have meaningful text and proper ARIA labels.
+- **Lists**: Structuring data correctly using lists with proper semantics.
+- **Headings**: Ensuring hierarchical and meaningful headings for improved navigation.
+- **ARIA**: Applying ARIA attributes for assistive technologies.
+- **Alternative Text**: Providing descriptive alt texts for images.
+- **Color Contrast**: Ensuring the color contrast meets minimum contrast ratios for readability.
+- **Forms**: Accessible labels, error handling, and keyboard navigation for forms.
+- **Navigation**: Ensuring consistent and intuitive navigation.
+- **Font Size**: Making text scalable without losing readability or breaking layout.
 
-You can use the following useful links to help guide your fixes:
+## Running the Application
 
-- **Links**: [WCAG 2.2 Links Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246%2C104%2C111#link-purpose-in-context)
-- **Lists**: [WCAG 2.2 Lists Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#consistent-navigation)
-- **Headings**: [WCAG 2.2 Headings Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#headings-and-labels)
-- **ARIA**: [WCAG 2.2 ARIA Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#aria)
-- **Alternative Text**: [WCAG 2.2 Alternative Text Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#non-text-content)
-- **Colors**: [WCAG 2.2 Color Contrast Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#contrast-minimum)
-- **Forms**: [WCAG 2.2 Forms Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#labels-or-instructions)
-- **Navigation**: [WCAG 2.2 Navigation Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#consistent-navigation)
-- **Font Size**: [WCAG 2.2 Font Sizing Guideline](https://www.w3.org/WAI/WCAG22/quickref/?showtechniques=246#resize-text)
+To get started with the application, follow these steps:
 
-Good luck!
+### Prerequisites
+
+- **Node.js**: Ensure you have Node.js installed on your machine. You can download it from [here](https://nodejs.org/).
+- **npm**: Comes bundled with Node.js for managing dependencies.
+
+### Installation
+
+1. **Clone the repository**:
+   git clone [<repository-url>](https://github.com/Kezykeen/frontend-accessibility-interview-main.git)
+   cd frontend-accessibility-interview-main
+
+2. **Install dependencies**:
+   npm install
+
+### Running the Application
+
+1. **Start the React development server**:
+   npm start
+
+2. **Access the application**:
+
+   Once the server starts, the application will be running at:
+
+   http://localhost:3000
+
+### Folder Structure
+
+frontend-accessibility-interview-main/
+│
+├── public/ # Public assets
+├── src/
+│ ├── assets/ # Contains the assets (like svgs) of the application
+│ ├── components/ # React components for the application
+│ ├── pages/ # Catalog, Manage, About folder pages
+│ └── App.css/ # Global and component-specific styles
+│ ├── App.tsx # Main application setup
+│ ├── index.tsx # Entry point of the app
+│
+├── cypress/ # Cypress tests and configurations
+├── README.md # Project documentation
+└── package.json # Project dependencies and scripts
+
+## Running Cypress Tests
+
+### Setup Cypress
+
+1. **Install Cypress**:
+
+   Cypress should already be installed as part of the project dependencies. If not, you can install it manually:
+   npm install cypress --save-dev
+
+### Running Tests
+
+1. **Open the Cypress Test Runner**:
+
+   npm run cypress:open
+
+   This will open the Cypress interactive test runner where you can select tests to run.
+
+2. **Run All Tests**:
+
+   npm run cypress:run
+
+   This will run all test files in the background and display the results in the terminal.
+
+### Cypress Test Files
+
+- Cypress test files are located in the `cypress/e2e` folder.
+- Example tests include:
+  - Checking if the catalog page loads correctly.
+  - Ensuring all dog cards render with accurate details.
+  - Validating the form on the manage page.
+
+## Important Notes
+
+- The project uses **Vanilla CSS** for styling.
+- **Accessibility** features include proper heading structures, ARIA labels, and forms with correct keyboard navigation and labels.
+- Ensure **color contrast** passes the WCAG 2.2 guidelines by using tools like the [Contrast Checker](https://webaim.org/resources/contrastchecker/).
+
+### Helpful Tools
+
+Here are some useful tools that were provided to aid in ensuring the app is accessible:
+
+- [Contrast Checker](https://webaim.org/resources/contrastchecker/): Verify color contrast ratios.
+- [Landmark Navigation](https://chromewebstore.google.com/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp): A Chrome extension for navigating through landmarks on a page.
+- [HTML Color Codes](https://htmlcolorcodes.com/): A tool to help you pick accessible colors.
+
+## Future Improvements
+
+- Continue to improve accessibility by conducting audits and resolving any potential issues flagged by automated tools or manual testing.
+- Expand test coverage to ensure the entire user journey is thoroughly validated.
+
+### Contributors
+
+- **Kingsley Okoro** - Project lead and developer.
