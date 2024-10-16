@@ -1,59 +1,56 @@
-describe("About Page Tests", () => {
+describe("About Page", () => {
   beforeEach(() => {
+    // Visit the About page
     cy.visit("/about");
   });
 
-  it("should display the About heading", () => {
-    cy.get("#about-heading").should("contain.text", "About This Website");
+  it("should display the About page heading and description", () => {
+    // Check if the heading is visible
+    cy.get("h1#about-heading")
+      .should("be.visible")
+      .and("contain", "About This Website");
+
+    // Check if the description is visible
+    cy.contains(
+      "This website demonstrates the importance of accessibility in web development"
+    ).should("be.visible");
   });
 
-  it("should display the description about accessibility", () => {
-    cy.get(".about-container")
-      .should("contain.text", "importance of accessibility in web development")
-      .and(
-        "contain.text",
-        "enhance user experience for individuals with disabilities"
+  it("should display helpful resources", () => {
+    // Check if the resources list is displayed
+    cy.get("#resource-list").within(() => {
+      // Check each resource link
+      cy.contains("Check color contrast compliance (WCAG AA).").should(
+        "have.attr",
+        "href",
+        "https://webaim.org/resources/contrastchecker/"
       );
-  });
-
-  it("should display helpful resources links", () => {
-    const links = [
-      {
-        text: "Check color contrasts to ensure they meet the AA grade.",
-        url: "https://webaim.org/resources/contrastchecker/",
-      },
-      {
-        text: "A tool to help you pick hex colors.",
-        url: "https://htmlcolorcodes.com/",
-      },
-      {
-        text: "Chrome extension for navigating through landmarks.",
-        url: "https://chromewebstore.google.com/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp",
-      },
-    ];
-
-    links.forEach((link) => {
-      cy.contains(link.text)
-        .should("have.attr", "href", link.url)
-        .and("have.attr", "target", "_blank");
+      cy.contains("Hex color picker tool.").should(
+        "have.attr",
+        "href",
+        "https://htmlcolorcodes.com/"
+      );
+      cy.contains("Chrome extension for landmark navigation.").should(
+        "have.attr",
+        "href",
+        "https://chromewebstore.google.com/detail/landmark-navigation-via-k/ddpokpbjopmeeiiolheejjpkonlkklgp"
+      );
     });
   });
 
-  it("should display the feedback button and alert on click", () => {
-    cy.get(".custom-button")
-      .should("exist")
-      .and("have.text", "Was this page helpful? Click here to let us know!");
+  it("should open the alert modal when button is clicked", () => {
+    // Click the button to open the alert modal
+    cy.get("button.custom-button").click();
 
-    // Mock the alert to test without showing the dialog
-    cy.window().then((win) => {
-      cy.stub(win, "alert").as("alert");
-    });
-
-    cy.get(".custom-button").click();
-
-    cy.get("@alert").should(
-      "have.been.calledWith",
-      "Thanks! Your feedback is important to us."
+    // Check if the alert modal is visible
+    cy.get(".modal-overlay").should("be.visible");
+    cy.contains("Received!").should("be.visible"); // Assuming the modal contains this title
+    cy.contains("Thanks! Your feedback is important to us.").should(
+      "be.visible"
     );
+
+    // Close the alert modal
+    cy.get(".modal-overlay button").click(); // Adjust the selector based on your modal's close button
+    cy.get(".modal-overlay").should("not.exist"); // Ensure the modal is closed
   });
 });

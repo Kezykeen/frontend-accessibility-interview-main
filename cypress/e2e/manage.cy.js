@@ -39,6 +39,7 @@ describe("Manage Component Tests", () => {
   it("should show an alert and reset the form upon submission", () => {
     const dogName = "Buddy";
 
+    // Fill out the form fields
     cy.get('input[name="name"]').type(dogName);
     cy.get('input[name="age"]').type("4");
     cy.get('input[name="height"]').type("30 inches");
@@ -46,18 +47,19 @@ describe("Manage Component Tests", () => {
     cy.get('input[name="favoriteToy"]').type("Frisbee");
     cy.get('input[name="favoriteMeal"]').type("Beef");
 
-    // Intercept the alert to assert it is called
-    cy.window().then((win) => {
-      cy.stub(win, "alert").as("alert");
-    });
-
+    // Intercept the AlertModal to verify its content
     cy.get(".submit-button").click();
+    cy.get(".modal-overlay")
+      .should("exist")
+      .within(() => {
+        cy.contains(`Dog name: ${dogName} was added successfully!`).should(
+          "be.visible"
+        );
+      });
 
-    // Assert the alert was called with the correct message
-    cy.get("@alert").should(
-      "have.been.calledWith",
-      `Dog name: ${dogName} was added successfully!`
-    );
+    // Close the AlertModal
+    cy.get(".modal-overlay button").click();
+    cy.get(".modal-overlay").should("not.exist");
 
     // Check if the form fields are reset
     cy.get('input[name="name"]').should("have.value", "");
