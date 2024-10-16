@@ -9,6 +9,7 @@
 }
 
 .logo img {
+  padding: 10px; /* Increase padding to ensure touch target is at least 24px */
   height: 20px; /* Set logo height to 20px */
 }
 
