@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import AlertModal from "../AlertModal";
-import { resources } from "../data";
+import { resources } from "../../components/data";
+import AlertModal from "../../components/AlertModal";
 import "./style.css"; // Import the CSS for styling
 
 const About: React.FC = () => {

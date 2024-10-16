@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import DogCard from "../DogCard";
-import AlertModal from "../AlertModal";
-import { dogs } from "../data";
+import { dogs } from "../../components/data";
+import DogCard from "../../components/DogCard";
+import AlertModal from "../../components/AlertModal";
 import "./style.css"; // Import the CSS for the catalog
 
 const Catalog: React.FC = () => {

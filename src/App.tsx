@@ -1,10 +1,10 @@
-import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Catalog from "./components/Catalog";
-import Manage from "./components/Manage";
 import Footer from "./components/Footer";
-import About from "./components/About";
+import Manage from "./pages/Manage";
+import Catalog from "./pages/Catalog";
+import About from "./pages/About";
+import "./App.css";
 
 const App = () => {
   return (
