@@ -36,7 +36,7 @@ describe("Manage Component Tests", () => {
       .should("have.value", "Chicken");
   });
 
-  it("should show an alert and reset the form upon submission", () => {
+  it("should show an alert modal and reset the form upon submission", () => {
     const dogName = "Buddy";
 
     // Fill out the form fields
@@ -47,8 +47,10 @@ describe("Manage Component Tests", () => {
     cy.get('input[name="favoriteToy"]').type("Frisbee");
     cy.get('input[name="favoriteMeal"]').type("Beef");
 
-    // Intercept the AlertModal to verify its content
+    // Submit the form
     cy.get(".submit-button").click();
+
+    // Verify the AlertModal content
     cy.get(".modal-overlay")
       .should("exist")
       .within(() => {
@@ -73,6 +75,7 @@ describe("Manage Component Tests", () => {
   it("should display a random dog image", () => {
     cy.get(".dogs-form-image img")
       .should("exist")
-      .and("have.attr", "alt", "A random dog image");
+      .and("have.attr", "src")
+      .and("include", "https://placedog.net");
   });
 });
