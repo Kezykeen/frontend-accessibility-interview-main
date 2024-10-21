@@ -25,49 +25,44 @@ export const DogCard: React.FC<DogCardProps> = ({
   clickHandler,
 }) => {
   return (
-    <article
-      className="dog-card"
-      role="listitem"
-      aria-labelledby={`dog-name-${id}`}
-      aria-describedby={`dog-info-${id}`}
-    >
+    <article className="dog-card" aria-labelledby={`dog-name-${name}-${id}`}>
       <img
         src={picture}
-        alt={`A dog named ${name} that is ${color} in color.`}
+        alt={`A ${color} dog named ${name}, ${age} years old.`}
         className="dog-image"
       />
       <h2 id={`dog-name-${id}`}>{name}</h2>
-      <div id={`dog-info-${id}`}>
+      <dl id={`dog-info-${id}`}>
         <div className="category">
-          <p className="category-label">ID:</p>
-          <p className="category-value">{id}</p>
+          <dt className="category-label">ID:</dt>
+          <dd className="category-value">{id}</dd>
         </div>
         <div className="category">
-          <p className="category-label">Age:</p>
-          <p className="category-value">{age} years</p>
+          <dt className="category-label">Age:</dt>
+          <dd className="category-value">{age} years</dd>
         </div>
         <div className="category">
-          <p className="category-label">Height:</p>
-          <p className="category-value">{height}</p>
+          <dt className="category-label">Height:</dt>
+          <dd className="category-value">{height}</dd>
         </div>
         <div className="category">
-          <p className="category-label">Color:</p>
-          <p className="category-value">{color}</p>
+          <dt className="category-label">Color:</dt>
+          <dd className="category-value">{color}</dd>
         </div>
         <div className="category">
-          <p className="category-label">Favorite Feature:</p>
-          <p className="category-value">{favoritePortFeature}</p>
+          <dt className="category-label">Favorite Feature:</dt>
+          <dd className="category-value">{favoritePortFeature}</dd>
         </div>
         <div className="category">
-          <p className="category-label">Favorite Meal:</p>
-          <p className="category-value">{favoriteMeal}</p>
+          <dt className="category-label">Favorite Meal:</dt>
+          <dd className="category-value">{favoriteMeal}</dd>
         </div>
-      </div>
+      </dl>
 
       <button
         className="dog-name-button"
         onClick={() => clickHandler(name)}
-        aria-label={`Alert the name of the dog, which is ${name}`}
+        aria-label={`Reveal ${name}'s name`}
       >
         Reveal Dog's Name
       </button>
