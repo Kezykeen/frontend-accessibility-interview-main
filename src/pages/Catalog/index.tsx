@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { dogs } from "../../components/data";
 import { AlertModal, DogCard } from "../../components";
-import "./style.css"; // Import the CSS for the catalog
+import "./style.css";
 
 const Catalog: React.FC = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -15,18 +15,21 @@ const Catalog: React.FC = () => {
   };
 
   return (
-    <main className="catalog" aria-labelledby="catalog-heading">
+    <main className="catalog">
       <h1 id="catalog-heading">Dog Catalog</h1>
-      <section className="dog-cards-container" role="list">
+      <ul className="dog-cards-container">
         {dogs.map((dog, index) => (
-          <DogCard key={index} {...dog} clickHandler={clickHandler} />
+          <li key={index}>
+            <DogCard {...dog} clickHandler={clickHandler} />
+          </li>
         ))}
-      </section>
+      </ul>
       <AlertModal
         isOpen={isAlertOpen}
         onClose={closeAlert}
         title="Dog Name"
         message={`Dog's name is ${dogName}`}
+        aria-live="polite"
       />
     </main>
   );
