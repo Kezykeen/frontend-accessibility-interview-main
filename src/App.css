@@ -47,6 +47,11 @@ label {
   margin-right: 10px; /* Space between label and input */
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 input {
   flex: 1; /* Allow inputs to take up the remaining space */
   padding: 8px; /* Padding inside the input fields */
@@ -59,6 +64,10 @@ input {
   flex-direction: column; /* Arrange children in a column */
   min-height: 100vh; /* Minimum height of the viewport */
   background-color: #fff4e4; /* Set the background color */
+}
+
+.App > main {
+  padding: 20px;
 }
 
 .main-content {

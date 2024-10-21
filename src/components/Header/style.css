@@ -44,11 +44,7 @@
 
 /* Mobile styles */
 @media (max-width: 600px) {
-  .App-header {
-    flex-direction: column;
-  }
-
-  .nav-container ul {
-    flex-direction: column;
+  .nav-container li {
+    margin: unset;
   }
 }

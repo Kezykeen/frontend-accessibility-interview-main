@@ -1,6 +1,5 @@
 /* Catalog.css */
 .catalog {
-  padding: 20px;
   text-align: center; /* Center the title */
   flex-grow: 1;
 }
@@ -30,4 +29,15 @@
   width: 100%; /* Responsive image */
   height: auto; /* Maintain aspect ratio */
   border-radius: 8px; /* Match card's corners */
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  #catalog-heading {
+    font-size: 24px;
+  }
+
+  .dog-cards-container {
+    gap: 20px;
+  }
 }
