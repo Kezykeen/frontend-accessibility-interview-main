@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AlertModal } from "../../components";
-import "./style.css"; // Import the CSS for styling
+import "./style.css";
 
 const Manage = () => {
   const [isAlertOpen, setIsAlertOpen] = useState(false);
@@ -25,6 +25,7 @@ const Manage = () => {
       favoriteMeal: "",
     });
   };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -38,14 +39,21 @@ const Manage = () => {
   };
 
   return (
-    <div className="manage-container">
+    <div
+      className="manage-container"
+      role="region"
+      aria-labelledby="manage-heading"
+    >
       <h2 id="manage-heading">Add a New Dog</h2>
       <main>
         <form
           onSubmit={handleSubmit}
           className="dog-form"
-          aria-labelledby="manage-heading"
+          aria-labelledby="form-heading"
         >
+          <h3 id="form-heading" className="visually-hidden">
+            Dog Information Form
+          </h3>
           <div className="form-group">
             <label htmlFor="name">Name:</label>
             <input
@@ -57,6 +65,8 @@ const Manage = () => {
               required
               placeholder="Charlie"
               aria-required="true"
+              aria-invalid={dogData.name === ""}
+              aria-describedby="name-error"
             />
           </div>
           <div className="form-group">
@@ -69,6 +79,10 @@ const Manage = () => {
               onChange={handleChange}
               required
               aria-required="true"
+              aria-invalid={dogData.age === ""}
+              aria-describedby="age-error"
+              min="0"
+              max="30"
             />
           </div>
           <div className="form-group">
@@ -81,6 +95,8 @@ const Manage = () => {
               onChange={handleChange}
               required
               aria-required="true"
+              aria-invalid={dogData.height === ""}
+              aria-describedby="height-error"
             />
           </div>
           <div className="form-group">
@@ -93,6 +109,8 @@ const Manage = () => {
               onChange={handleChange}
               required
               aria-required="true"
+              aria-invalid={dogData.color === ""}
+              aria-describedby="color-error"
             />
           </div>
           <div className="form-group">
@@ -105,6 +123,8 @@ const Manage = () => {
               onChange={handleChange}
               required
               aria-required="true"
+              aria-invalid={dogData.favoriteToy === ""}
+              aria-describedby="favoriteToy-error"
             />
           </div>
           <div className="form-group">
@@ -117,6 +137,8 @@ const Manage = () => {
               onChange={handleChange}
               required
               aria-required="true"
+              aria-invalid={dogData.favoriteMeal === ""}
+              aria-describedby="favoriteMeal-error"
             />
           </div>
           <button
@@ -129,21 +151,19 @@ const Manage = () => {
         </form>
       </main>
 
-      <div
+      <figure
         className="dogs-form-image"
-        tabIndex={0}
         role="img"
-        aria-label="Random Dog Image"
+        aria-labelledby="dog-image-caption"
       >
-        <img
-          src={`https://placedog.net/1000/300/random?id=128`}
-          alt="A random dog image"
-        />
-      </div>
+        <img src={`https://placedog.net/1000/300/random?id=128`} alt="" />
+        <figcaption id="dog-image-caption">A random cute dog</figcaption>
+      </figure>
+
       <AlertModal
         isOpen={isAlertOpen}
         onClose={closeAlert}
-        title="Dog Name"
+        title="Dog Added"
         message={`Dog name: ${dogData.name} was added successfully!`}
       />
     </div>
