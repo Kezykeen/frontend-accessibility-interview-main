@@ -22,13 +22,13 @@ describe("Dog Card Component Tests", () => {
         // Check if the dog name is displayed correctly
         cy.get("h2").should("contain.text", dog.name);
 
-        // Check if the dog image is displayed with the correct src
+        // Check if the dog image is displayed with the correct src and alt
         cy.get("img.dog-image")
           .should("have.attr", "src", dog.picture)
           .and(
             "have.attr",
             "alt",
-            `A picture of ${dog.name}, a ${dog.color} dog`
+            `A ${dog.color} dog named ${dog.name}, ${dog.age} years old.`
           );
 
         // Check if age is displayed correctly
@@ -63,20 +63,24 @@ describe("Dog Card Component Tests", () => {
       });
   });
 
-  it("should alert the dog’s name when the button is clicked", () => {
-    cy.window().then((win) => {
-      cy.stub(win, "alert").as("alert"); // Stub the alert function
-    });
-
+  it("should open the modal and display the correct dog's name when the button is clicked", () => {
+    // Click the button to open the modal
     cy.get(".dog-card")
       .first()
       .within(() => {
-        cy.get(".dog-name-button").click(); // Click the alert button
+        cy.get(".dog-name-button").click(); // Click the Reveal Dog's Name button
       });
 
-    cy.get("@alert").should(
-      "have.been.calledWith",
+    // Check if the modal opens with the correct message
+    cy.get(".modal-overlay").should("be.visible");
+    cy.get("#modal-title").should("have.text", "Dog Name");
+    cy.get("#modal-description").should(
+      "have.text",
       `Dog's name is ${dog.name}`
-    ); // Check if alert is called with correct name
+    );
+
+    // Close the modal
+    cy.get(".modal-content button").click(); // Click the Close button
+    cy.get(".modal-overlay").should("not.exist"); // Verify the modal is closed
   });
 });
