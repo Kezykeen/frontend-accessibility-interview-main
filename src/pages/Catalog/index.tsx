@@ -15,7 +15,7 @@ const Catalog: React.FC = () => {
   };
 
   return (
-    <main className="catalog">
+    <main className="catalog" aria-labelledby="catalog-heading">
       <h1 id="catalog-heading">Dog Catalog</h1>
       <ul className="dog-cards-container">
         {dogs.map((dog, index) => (
